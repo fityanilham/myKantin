@@ -56,7 +56,7 @@ class Home extends Component {
                     <i className="fas fa-arrow-left"></i>
                   </div>
                   <ul className="list-unstyled components">
-                    <p>MyKantin</p>
+                    <p>Kantin Ku</p>
                     <li className="active">
                       <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Menu</a>
                       <ul className="collapse list-unstyled" id="homeSubmenu">

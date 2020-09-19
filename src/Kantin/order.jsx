@@ -27,8 +27,8 @@ class Order extends Component {
     return (
       <div className="col-3">
         <div className="d-flex justify-content-end mt-3">
-          <span className><i className="fas fa-heart mr-4 jarak"></i></span>
-          <h6><span className="badge bg-notif mr-4 jarak">3</span></h6>
+          <span className><i className="fas fa-heart mr-1 jarak"></i></span>
+          <h6><span className="badge bg-notif mr-3">3</span></h6>
           <a href="">
             <img src="https://image.flaticon.com/icons/png/128/3135/3135715.png" height="35" className="rounded-circle" alt=""/>
           </a>
