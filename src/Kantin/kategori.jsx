@@ -48,12 +48,12 @@ class Kategori extends Component {
               </div>
             </div>
           </div>
-          <div className="row ml-1 d-flex justify-content-center">
+          <div className="row d-flex justify-content-center">
             {
               this.state.categories ? this.state.categories.map(category =>
               <div className="col-3">
                 <a className="card text-white" key={category.id} onClick={_ => this.onClickHandler(category.id)}>
-                  <img src={category.img} className="card-img" alt="" height="100" />
+                  <img src={category.img} className="card-img hover-img" alt="" height="100" />
                   <div className="card-img-overlay">
                     <h5 className="card-title text-center mt-3">{category.name}</h5>
                   </div>
