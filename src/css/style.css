@@ -1,4 +1,4 @@
-@import "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;1,500&family=Ranchers&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Poppins&display=swap";
 
 .alert {
   border-radius: 1em;
@@ -9,9 +9,13 @@
   filter: brightness(40%)
 }
 
+.card {
+border-radius: 5mm;
+}
+
 .bg-notif {
-  background-color: #fdcb6e;
-  border-radius: 50px;
+  background-color:#f8b90b;
+  border-radius: 10px;
   color: black;
 }
 
@@ -34,8 +38,33 @@
   margin-right: 2cm;
 }
 
+.psn {
+  background-color:#f8b90b;
+  font-weight: bold;
+}
+
+.text {
+  color: antiquewhite;
+}
+
+.harga {
+  margin-left: 70%;
+}
+
+.persen {
+  margin-left: 1%;
+}
+
+.ll {
+  background-color: #6455c2;
+}
+
+.plus{
+  border-radius: 7mm;
+}
+
 body {
-  font-family: 'Ranchers', cursive;
+  font-family: 'Poppins', sans-serif;
   background: #fafafa;
 }
 
@@ -88,7 +117,7 @@ a:focus {
   left: -250px;
   height: 100vh;
   z-index: 999;
-  background: #6455c2;
+  background: rgb(53, 53, 219);
   color: #fff;
   transition: all 0.3s;
   overflow-y: scroll;

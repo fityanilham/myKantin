@@ -1,6 +1,28 @@
 import React, { Component } from 'react'
 
 class Order extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      list: [],
+      total: 0,
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.item !== this.props.item) {
+      console.log(this.props.item.pesan);
+      console.log(this.props.item.harga);
+
+      const total = this.props.item.pesan * this.props.item.harga;
+
+      this.setState({
+        list: [...this.state.list, this.props.item],
+        total: this.state.total + total
+      });
+      console.log(this.state.total);
+    }
+  }
   render () {
     return (
       <div className="col-3">
@@ -19,52 +41,32 @@ class Order extends Component {
             <p className="card-text text-white mb-2">32198392192913912</p>
           </div>
         </div>
-        <div className="card order">
-          <div className="card-body">
-          <table className="font-weight-bold ukurantable">
-                <tbody>
-                    <tr>
-                        <th><img src="https://scootersjungle.com/placentia/wp-content/uploads/sites/4/2018/08/Papa-Johns-Cheese-Pizza-589x414-2.jpg" className="edgeimage mt-4" height="50" alt=""/></th>
-                        <td><span className="ml-3 mr-3 mt-2">3</span></td>
-                        <td><span className="mr-3 mt-2">x</span></td>
-                        <td><span className="mt-2">Cheese Pizza Enak Abiez</span></td>
-                        <td><span className="text-muted ml-2 mt-2">Rp 120k</span></td>
-                    </tr>
-                    <tr>
-                        <th><img src="https://s0.bukalapak.com/uploads/content_attachment/0bfe2ac083a1f0bed65e87b5/w-744/foto_ending_jus_mangga.jpg" className="edgeimage mt-4" height="50" alt=""/></th>
-                        <td><span className="ml-3 mr-3 mt-2">2</span></td>
-                        <td><span className="mr-3 mt-2">x</span></td>
-                        <td><span className="mt-2">Jus Mangga</span></td>
-                        <td><span className="text-muted ml-2 mt-2">Rp 14k</span></td>
-                    </tr>
-                    <tr>
-                        <th><img src="https://img-global.cpcdn.com/recipes/7369e12b717fc0e6/751x532cq70/salad-sayur-foto-resep-utama.jpg" className="edgeimage mt-4" height="50" alt=""/></th>
-                        <td><span className="ml-3 mr-3 mt-2">1</span></td>
-                        <td><span className="mr-3 mt-2">x</span></td>
-                        <td><span className="mt-2">Salad Sayur</span></td>
-                        <td><span className="text-muted ml-2 mt-2">Rp 13k</span></td>
-                    </tr>
-                    <tr>
-                        <th><img className="edgeimage mt-2 mb-2 ml-2" height="50" alt=""/></th>
-                        <td colSpan="3"><span className="ml-3 mr-3">Jl. Bangke No. 13, Bekasi</span></td>
-                        <td><span className="text-muted ml-2 mt-2">Gratis</span></td>
-                    </tr>
-                    <tr>
-                        <th><div className="container totaljarak"></div></th>
-                    </tr>
-                    <tr>
-                        <th><span className="mb-2 ml-2">Total :</span></th>
-                        <td colSpan="4"><h3 className="font-weight-bold text-right">Rp 147.000</h3></td>
-                    </tr>
-                    <tr>
-                        <td colSpan="5">
-                            <button className="btn btn-warning bg-notif btn-block mt-3 pt-3 pb-3">
-                                <span className="sizepesan">Pesan<i class="fas fa-chevron-right ml-5"></i></span>
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+        <div className="wrapper order">
+          <div className="calculate p-3">
+            {
+              this.state.list ? this.state.list.map((item, i) =>
+                <div key={i} className="items d-flex justify-content-between align-items-center mb-3">
+                  <img src={item.image} width="50" />
+                  <p className="mb-0">{item.pesan}</p>
+                  <p className="mb-0">x</p>
+                  <p className="mb-0">Rp. {item.harga * item.pesan}</p>
+                </div>
+              ) : ''
+            } 
+            <div className="items d-flex justify-content-between align-items-center mb-3">
+              <div className="wrapper">
+                <i class="fas fa-truck"></i>
+              </div>
+              <p className="mb-0">Bekasi</p>
+              <p className="mb-0">Gratis</p>
+            </div>
+          </div>
+          <div className="total p-3 d-flex justify-content-between align-items-center">
+            <p className="mb-0">Total: {this.state.total}</p>
+            <p className="mb-0 total-rp">Rp. </p>
+          </div>
+          <div className="wrapper-btn p-3 w-100">
+            <button className="btn w-100 psn">Pesan</button>
           </div>
         </div>
       </div>

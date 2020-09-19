@@ -1,47 +1,76 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 class Populer extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      base_url: 'https://belajar-react.smkmadinatulquran.sch.id/api/',
+      popular: '',
+      item: '',
+    };
+  }
+
+  getAllPopular() {
+    return fetch(`${this.state.base_url}populer/all`)
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({ popular: responseJson.data });
+      })
+      .catch(error => 'error')
+  }
+
+  onClickHandler = e => {
+    this.props.onShowModal(e);
+  }
+
+
+  componentDidMount() {
+    this.getAllPopular();
+  }
+
+  componentDidUpdate(props) {
+    if (props.popular !== this.props.popular) {
+      this.setState({ popular: this.props.popular });
+    }
+  }
+
   render() {
     return (
-      <div className="row mt-5" id="body-row">
+      <Fragment>
+        <div className="row mt-5" id="body-row">
         <div className="col">
           <h4 className="ml-5">Populer</h4>
           <div className="row ml-1">
-            <div className="col-3">
-              <div class="card bg-dark text-white">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcShlOuOelniTUjkrATmEhmpRXiZb5a4yVayhw&usqp=CAU" class="card-img" alt="" height="100" />
-                <div class="card-img-overlay">
-                  <h5 class="card-title text-center mt-3">Semua</h5>
-                </div>
+            {
+            this.state.popular ? this.state.popular.map((item, i) =>
+              <div className="col-3 mb-5" key={i}>
+                <a href="" className="a-popular" data-toggle="modal" data-target="#pesanModal" onClick={_ => this.onClickHandler(item)}>
+                  <div className="card">
+                    <img src={item.image} className="card card-img-top hovered-img" height="100" alt=""/>
+                    <div className="card-img-overlay">
+                      <button disabled="disabled" className="btn btn-info btn-sm">{item.waktu}</button>
+                    </div>
+                    <div className="card-body">
+                      <h6>{item.name}</h6>
+                      <div className="row">
+                        <div className="col-8">
+                          <p className="card-text">Rp. {item.harga}</p>
+                        </div>
+                        <div className="col-4 d-flex justify-content-center">
+                          <p className="card-text">{item.rating}⭐</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </a>
               </div>
-            </div>
-            <div className="col-3">
-              <div class="card bg-dark text-white">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTVrbTjsfX4wmFK2dz--8F7x4qBC661BWaCGw&usqp=CAU" class="card-img" alt="" height="100" />
-                <div class="card-img-overlay">
-                  <h5 class="card-title text-center mt-3">Makanan</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-3">
-              <div class="card bg-dark text-white">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQcMuvTMpB8qkzq_RpwDPsJm3f_I-hF3n8mQ&usqp=CAU" class="card-img" alt="" height="100" />
-                <div class="card-img-overlay">
-                  <h5 class="card-title text-center mt-3">Boba</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-3">
-              <div class="card bg-dark text-white">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-68M45EXKmUO2RCjQ5epnpDr3KRr-5CA6Wg&usqp=CAU" class="card-img" alt="" height="100" />
-                <div class="card-img-overlay">
-                  <h5 class="card-title text-center mt-3">Special</h5>
-                </div>
-              </div>
-            </div>
+            ) : ''
+            }
           </div>
         </div>
       </div>
+      </Fragment>
     );
   }
 }
