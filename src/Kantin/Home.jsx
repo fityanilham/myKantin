@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react'
 import Kategory from './kategory'
+import Order from './order'
 import Populer from './populer'
 
 class Home extends Component {
   render() {
     return (
       <Fragment>
+        <div className="container-fluid">
         <div className="row">
           <div className="col-9">
             <div class="wrapper">
@@ -48,25 +50,8 @@ class Home extends Component {
             <Kategory />
             <Populer />
           </div>
-          <div className="col-3">
-            {/* <div class="dropdown mt-2 justify-content-end">
-              <a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true">
-                Fityan Ilham
-              </a>
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTBp3EpvQvnrZ4SE_5u4VyQjQQacilz2Vv0yA&usqp=CAU" alt="" height="40" width="40" />
-              <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                <button class="dropdown-item" type="button">Keluar <i class="fas fa-sign-out-alt"></i></button>
-              </div>
-            </div>
-            <div className="card mt-5">
-              <div className="card-body">
-                <h5 className="card-title">Special title treatment</h5>
-                <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                <a href="#" className="btn btn-primary">Go somewhere</a>
-              </div>
-            </div> */}
-            <div className="bg-primary">1</div>
-          </div>      
+          <Order />     
+        </div>
         </div>
       </Fragment>
     );
