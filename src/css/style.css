@@ -63,6 +63,10 @@ border-radius: 5mm;
   border-radius: 7mm;
 }
 
+.cari {
+  width: 250%;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background: #fafafa;

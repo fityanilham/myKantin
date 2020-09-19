@@ -84,7 +84,7 @@ class Home extends Component {
                     </div>
                   </div>
                   <div className="col-10">
-                    <div className="">
+                    <div className="cari">
                       <div className="input-group input-group-sm ml-5 mt-1">
                         <input type="text" placeholder="Cari makan bang?" className="form-control bg-search" />
                         <span><i className="fas fa-search mt-2 ml-2"></i></span>
