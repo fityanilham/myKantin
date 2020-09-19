@@ -29,7 +29,6 @@ class Modal extends Component {
     const input = document.querySelector('.number');
     let total = parseInt(input.value);
 
-
     if (e === '+') {
       if (this.state.item.jumlah === 0) {
         return;
@@ -86,7 +85,7 @@ class Modal extends Component {
                     <p>Rp. {this.state.item ? this.state.item.harga : ''}</p>
                   </div>
                   <div className="col-md-7 d-flex justify-content-end">
-                    <p className="mr-2">⭐ {this.state.item ? this.state.item.rating : ''}</p>
+                    <p className="mr-2">{this.state.item ? this.state.item.rating : ''}⭐</p>
                   </div>
                 </div>
               </div>

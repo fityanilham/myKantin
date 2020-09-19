@@ -94,7 +94,7 @@ class Home extends Component {
                 </div>
               </nav>
               <Kategori popular={this.popularOnChange}/>
-              <Populer Populer={this.state.popular} onShowModal={this.handlerModal}/>
+              <Populer popular={this.state.popular} onShowModal={this.handlerModal}/>
             </div>
             <Order item={this.state.order}/>     
           </div>

@@ -28,6 +28,7 @@ class Kategori extends Component {
 
   onClickHandler = (e) => {
     this.props.popular(e);
+    console.log('Kontol');
   }
   render() {
     return (
@@ -51,12 +52,12 @@ class Kategori extends Component {
             {
               this.state.categories ? this.state.categories.map(category =>
               <div className="col-3">
-                <button className="card text-white" key={category.id} onClick={_ => this.onClickHandler(category.id)}>
+                <a className="card text-white" key={category.id} onClick={_ => this.onClickHandler(category.id)}>
                   <img src={category.img} className="card-img" alt="" height="100" />
                   <div className="card-img-overlay">
                     <h5 className="card-title text-center mt-3">{category.name}</h5>
                   </div>
-                </button>
+                </a>
               </div>
             ) : <br/>
           }
