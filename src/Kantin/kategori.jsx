@@ -52,7 +52,7 @@ class Kategori extends Component {
             {
               this.state.categories ? this.state.categories.map(category =>
               <div className="col-3">
-                <a className="card text-white" key={category.id} onClick={_ => this.onClickHandler(category.id)}>
+                <a className="card text-white hovered-img kategoristyle" key={category.id} onClick={_ => this.onClickHandler(category.id)}>
                   <img src={category.img} className="card-img hover-img" alt="" height="100" />
                   <div className="card-img-overlay">
                     <h5 className="card-title text-center mt-3">{category.name}</h5>

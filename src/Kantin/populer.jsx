@@ -46,24 +46,24 @@ class Populer extends Component {
             this.state.popular ? this.state.popular.map((item, i) =>
               <div className="col-3 mb-5" key={i}>
                 <a href="" className="a-popular" data-toggle="modal" data-target="#pesanModal" onClick={_ => this.onClickHandler(item)}>
-                  <div className="card">
-                    <img src={item.image} className="card card-img-top hovered-img" height="100" alt=""/>
+                  <div className="isimakan">
+                    <img src={item.image} className="card card-img-top edgeimage d-block" style={{ width: '100%' }} height="100" alt=""/>
                     <div className="card-img-overlay">
-                      <button disabled="disabled" className="btn btn-info btn-sm">{item.waktu}</button>
-                    </div>
-                    <div className="card-body">
-                      <h6>{item.name}</h6>
-                      <div className="row">
-                        <div className="col-8">
-                          <p className="card-text">Rp. {item.harga}</p>
-                        </div>
-                        <div className="col-4 d-flex justify-content-center">
-                          <p className="card-text">{item.rating}⭐</p>
-                        </div>
-                      </div>
+                      <button disabled="disabled" className="bottom-left">{item.waktu}</button>
                     </div>
                   </div>
                 </a>
+                <div className="card-body">
+                  <h6>{item.name}</h6>
+                  <div className="row">
+                    <div className="col-8">
+                      <p className="card-text">Rp. {item.harga}</p>
+                    </div>
+                    <div className="col-4 d-flex justify-content-center">
+                      <p className="card-text">{item.rating}⭐</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             ) : ''
             }
